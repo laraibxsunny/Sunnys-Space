@@ -1,0 +1,71 @@
+.inputBox {
+  width: 350px;
+  height: 25px;
+  padding: 20px;
+  padding-left: 15px;
+  font-size: 20px;
+  font-family: "Fira Code", monospace;
+  border-radius: 5px;
+  border-width: 4px;
+  border-color: var(--yellow);
+  background-color: var(--fg2);
+}
+
+.inputBox:focus {
+  box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+  outline: none;
+  border-color: var(--orange);
+  background-color: var(--fg3);
+}
+
+.inputSubmit {
+  width: 50px;
+  height: 60px;
+  margin: 7px;
+  font-family: "Fira Code", monospace;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color: var(--yellow-dim);
+  background-color: var(--fg2);
+}
+
+.inputSubmit:active {
+  border-color: var(--orange);
+  background-color: var(--fg3);
+}
+
+@media (width <= 950px) {
+  .inputBox {
+    width: 350px;
+  }
+}
+
+@media (width <= 500px) {
+  .inputBox {
+    height: 22px;
+    width: 285px;
+    font-size: 16px;
+  }
+
+  .inputSubmit {
+    height: 50px;
+    width: 45px;
+  }
+}
+
+@media (width <= 400px) {
+  .inputBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 18px;
+    width: 220px;
+    font-size: 12px;
+  }
+
+  .inputSubmit {
+    height: 40px;
+    width: 40px;
+    font-size: 12px;
+  }
+}
