@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Todo } from "../Models/Todos";
-import styles from "../Styles/SingleTodoStyles.module.css";
-import { Draggable } from "react-beautiful-dnd";
-import pencilIcon from "../Assets/pencilIcon.png";
-import poopIcon from "../Assets/poopIcon.png";
+import React, {useEffect, useRef, useState} from "react";
+import {Todo} from "../../Models/Todos";
+import styles from "../../Styles/TodoPage/SingleTodoStyles.module.css";
+import {Draggable} from "react-beautiful-dnd";
+import pencilIcon from "../../Assets/pencilIcon.png";
+import poopIcon from "../../Assets/poopIcon.png";
 
 interface Props {
   index: number;
@@ -79,7 +79,7 @@ const SingleTodo: React.FC<Props> = ({ index, todo, todos, setTodos }) => {
               />
             </span>
             <span
-              className={styles.singleTodoIcon}
+              className="singleTodoIcon"
               onClick={() => handleDelete(todo.id)}
             >
               <img

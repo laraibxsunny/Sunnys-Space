@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+
+:root {
+  background-color: var(--aqua-dim);
+}
+
+.wholePage {
+  display: flex;
+}
+
+.homePageTab {
+  height: 97vh;
+  width: 92vw;
+  background-color: var(--bg1);
+  font-family: "Fira Code", monospace;
+  border: 5px inset var(--yellow);
+  border-radius: 5px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--yellow-dim);
+  font-weight: 400;
+  background-color: var(--bg_h);
+  border-bottom: 2px solid;
+  border-color: var(--yellow-dim);
+}
+
+.break {
+  color: var(--orange);
+}
+
+.letters:hover {
+  color: var(--orange);
+}
+
+.heading:active {
+  color: var(--yellow);
+}
+
+.title {
+  padding: 3px 0 3px 5px;
+}
+
+.TabButtons {
+  background-color: var(--bg1);
+  color: var(--yellow-dim);
+  font-weight: bold;
+  margin: 0 5px 0 0;
+}
+
+.tabOptions {
+}
+
+.taskBar {
+  height: fit-content;
+  width: 90px;
+  margin-left: 10px;
+  background-color: var(--bg4);
+  border: 4px inset var(--orange);
+  border-radius: 5px;
+}
+
+.taskBarOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  margin-block: 16px;
+}
+
+.taskOptionText {
+  font-family: "Fira Code", monospace;
+  font-weight: 600;
+  text-shadow: #1d2021 0 2px 0;
+  color: var(--orange);
+}
+
+.taskBarIMGs {
+  height: 58px;
+  width: 58px;
+}
+
+#taskBarIMG {
+  height: 70px;
+  width: 70px;
+}
+
+#taskBarIMGOpen {
+  height: 70px;
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+@media (width <= 950px) {
+}
+
+@media (width <= 500px) {
+}
+
+@media (width <= 400px) {
+}

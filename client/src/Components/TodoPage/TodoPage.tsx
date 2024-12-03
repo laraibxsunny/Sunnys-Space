@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import "./Styles/App.css";
-import "./Styles/gruvbox-dark.css";
-import InputField from "./Components/InputField";
-import { Todo } from "./Models/Todos";
+import { Todo } from "../../Models/Todos";
 import { nanoid } from "nanoid";
-import TodoList from "./Components/TodoList";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import InputField from "./InputField";
+import TodoList from "./TodoList";
+import styles from "../../Styles/TodoPage/TodoPageStyles.module.css";
 
-const App: React.FC = () => {
+function TodoPage() {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Array<Todo>>([]);
 
@@ -64,24 +63,32 @@ const App: React.FC = () => {
     setCompletedTodos(complete);
     setTodos(active);
   };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="App">
-        <div className="heading">
-          <span className="letters">S</span>
-          <span className="letters">u</span>
-          <span className="letters">n</span>
-          <span className="letters">n</span>
-          <span className="letters">y</span>
-          <span className="letters">'</span>
-          <span className="letters">s</span>
-          <span className="break">||</span>
-          <span className="letters">Q</span>
-          <span className="letters">u</span>
-          <span className="letters">e</span>
-          <span className="letters">s</span>
-          <span className="letters">t</span>
-          <span className="letters">s</span>
+      <div className={styles.TodoPage}>
+        <div className={styles.heading}>
+          <div className={styles.title}>
+            <span className={styles.letters}>S</span>
+            <span className={styles.letters}>u</span>
+            <span className={styles.letters}>n</span>
+            <span className={styles.letters}>n</span>
+            <span className={styles.letters}>y</span>
+            <span className={styles.letters}>'</span>
+            <span className={styles.letters}>s</span>
+            <span className={styles.break}>||</span>
+            <span className={styles.letters}>Q</span>
+            <span className={styles.letters}>u</span>
+            <span className={styles.letters}>e</span>
+            <span className={styles.letters}>s</span>
+            <span className={styles.letters}>t</span>
+            <span className={styles.letters}>s</span>
+          </div>
+          <div className={styles.tabOptions}>
+            <a href={"/"}>
+              <button className={styles.TabButtons}>❌</button>
+            </a>
+          </div>
         </div>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
         <TodoList
@@ -93,6 +100,6 @@ const App: React.FC = () => {
       </div>
     </DragDropContext>
   );
-};
+}
 
-export default App;
+export default TodoPage;

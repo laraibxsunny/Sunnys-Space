@@ -6,9 +6,6 @@
 }
 
 .activeQuests {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   width: 450px;
   background-color: var(--fg4);
   margin: 5px;
@@ -18,9 +15,6 @@
 }
 
 .completedQuests {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   width: 450px;
   background-color: var(--fg4);
   margin: 5px;
@@ -97,9 +91,10 @@
   border-color: var(--bg1);
 }
 
-@media (width <= 950px) {
+@media (width <= 970px) {
   .container {
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -109,19 +104,19 @@
   }
 
   .activeQuests {
-    width: 380px;
+    width: 350px;
   }
 
   .completedQuests {
-    width: 380px;
+    width: 350px;
   }
 
   .dragActiveContainer {
-    width: 380px;
+    width: 350px;
   }
 
   .dragCompleteContainer {
-    width: 380px;
+    width: 350px;
   }
 }
 

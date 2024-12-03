@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "../Styles/TodoListStyles.module.css";
-import { Todo } from "../Models/Todos";
+import styles from "../../Styles/TodoPage/TodoListStyles.module.css";
+import {Todo} from "../../Models/Todos";
 import SingleTodo from "./SingleTodo";
-import { Droppable } from "react-beautiful-dnd";
+import {Droppable} from "react-beautiful-dnd";
 
 interface Props {
   todos: Todo[];

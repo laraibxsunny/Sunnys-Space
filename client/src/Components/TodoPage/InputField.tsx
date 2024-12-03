@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import styles from "../Styles/InputFieldStyles.module.css";
+import styles from "../../Styles/TodoPage/InputFieldStyles.module.css";
 
 interface Props {
   todo: string;
@@ -16,6 +16,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
         handleAdd(e);
         inputRef.current?.blur();
       }}
+      className={styles.keyboard}
     >
       <input
         ref={inputRef}
