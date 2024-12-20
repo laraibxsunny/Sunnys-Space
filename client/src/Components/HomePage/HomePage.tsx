@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../Styles/HomePage/HomePageStyles.module.css";
-import { DragDropContext, DropResult } from "react-beautiful-dnd";
+//import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import "../../Styles/gruvbox-dark.css";
 import githubIcon from "../../Assets/githubIcon.png";
 import taskBarIcon from "../../Assets/taskBarIcon.png";
@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
 
   function toggleTaskBar() {
     setToggle(toggle + 1);
-    if (toggle == 2) {
+    if (toggle === 2) {
       setToggle(0);
     }
   }
