@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SelectionPage from "./Components/SelectionPage/SelectionPage";
 import CalendarPage from "./Components/CalendarPage/CalendarPage";
 import NotFound from "./Components/NotFoundPage";
+import QuizPage from "./Components/QuizPage/QuizPage";
+import DrumKitPage from "./Components/DrumKitPage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +17,9 @@ ReactDOM.render(
         <Route path="/sunnys-quests" element={<TodoPage />} />
         <Route path="/selection" element={<SelectionPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/quiz" element={<QuizPage/>} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/drumkit" element={<DrumKitPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

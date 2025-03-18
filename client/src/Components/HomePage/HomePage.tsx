@@ -8,6 +8,7 @@ import blownupIcon from "../../Assets/blownupIcon.png";
 import taskBarIcon2 from "../../Assets/taskBarIcon2.png";
 import questsIcon from "../../Assets/questIcon.webp";
 import calendarIcon from "../../Assets/calendarIcon.png";
+import drumkitIcon from "../../Assets/drumkitIcon.png";
 
 const HomePage: React.FC = () => {
   let [toggle, setToggle] = React.useState<number>(0);
@@ -88,6 +89,14 @@ const HomePage: React.FC = () => {
                 alt="Calendar Icon"
               />
               <span className={styles.taskOptionText}>CALENDAR</span>
+            </a>
+            <a className={styles.taskBarOption} href={"/drumkit"}>
+              <img
+                className={styles.taskBarIMGs}
+                src={drumkitIcon}
+                alt="DrumKitIcon"
+              />
+              <span className={styles.taskOptionText}>DRUMKIT</span>
             </a>
           </span>
         </div>
