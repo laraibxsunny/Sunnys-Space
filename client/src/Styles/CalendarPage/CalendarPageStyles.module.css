@@ -1,0 +1,47 @@
+.wholePage {
+    display: flex;
+  }
+  
+.calendarPageTab {
+    height: 97vh;
+    width: 97vw;
+    background-color: var(--bg1);
+    font-family: "Fira Code", monospace;
+    border: 5px inset var(--yellow);
+    border-radius: 5px;
+}
+  
+.heading {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: var(--yellow-dim);
+    font-weight: 400;
+    background-color: var(--bg_h);
+    border-bottom: 2px solid;
+    border-color: var(--yellow-dim);
+}
+  
+.break {
+    color: var(--orange);
+}
+  
+.letters:hover {
+    color: var(--orange);
+}
+  
+.heading:active {
+    color: var(--yellow);
+}
+  
+.title {
+    padding: 3px 0 3px 5px;
+}
+
+.TabButtons {
+    background-color: var(--bg1);
+    color: var(--yellow-dim);
+    font-weight: bold;
+    margin: 0 5px 0 0;
+}
