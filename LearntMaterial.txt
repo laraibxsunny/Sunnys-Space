@@ -1,0 +1,56 @@
+What I learnt
+
+-Enums have the purpose of defining a set of constant values with specific types which ensures a value is one of the enum members
+
+-Interfaces ensure a class or object matches the specified structure.
+
+-difference between types and interfaces are:
+*error handling, interfaces provide better error messages because they can detect conflict and throw errors when 'IMPLEMENTING'
+*flexibility, interfaces are more flexible because their definitions can be extended and modified without breaking the functionality of the interface.
+*useability, types can express unions(&, mapped types, or conditional types, while interfaces cannot.
+*literal values, types can be given literal values, such as a string or a number, which is not possible with interfaces
+
+-The importance of declaring props on a component makes more sense:
+*By declaring questions as a prop for the Quiz component, you make it explicit that the Quiz component depends on an array of questions to function properly
+improving readability and maintainablility for other devs.
+*This approach ensures the Quiz component is independent and doesn't rely on hardcoding or fetching its own data soyou can use the same Quiz component in 
+multiple places with varying data, which aligns with React's philosophy of building composable and reusable components.
+*If questions were hardcoded or declared within Quiz, changing the data source would be more complex. With questions as a prop,
+the parent App component can control the source of the data.
+
+e.gs 
+<Quiz questions={questions} /> // with props
+----- 
+<Quiz questions={historyQuestions} /> // reuseability
+-----
+const Quiz: React.FC = () => {
+  const questions = [ /* hardcoded questions */ ];
+  return <div>{/* Render questions */}</div>;
+}; // without props
+
+
+-Seperation of importance
+In React, we strive for a separation of concerns:
+
+The App component focuses on the overall layout and data fetching.
+The Quiz component focuses only on displaying the quiz and handling user interactions.
+By declaring questions as a prop:
+
+The App component takes responsibility for supplying the data (questions).
+The Quiz component takes responsibility for rendering and managing the quiz UI.
+
+
+
+
+
+
+Quiz Question Material
+
+-Enumeration = the action of mentioning a number of things one by one
+-DEI = diversity equality inclusion
+-aggregated = to combine into a single group or total
+-user flow = User flow is the path a user takes to complete a task on a website or app, and can also refer to a visualization of that path
+-tuple = unlike arrays, tuples have a fixed length and their elements can have different data types.
+-e.g = latin for exampelia gratia meaning "for example" or "for the sake of example"
+-subjective and objective = subjective is based on personal opinions and feelings whereas objective is the opposite
+
