@@ -1,120 +1,80 @@
-import React from 'react'
-import styles from "../Styles/DrumKitPage/DrumKitPageStyles.module.css"
+import React, { useEffect } from 'react';
+import styles from "../Styles/DrumKitPage/DrumKitPageStyles.module.css"; // ✅ Ensure this exists
 
 function DrumKitPage() {
+  useEffect(() => {
+    function removeTransition(e: TransitionEvent) {
+      if (e.propertyName !== "transform") return;
+      (e.target as HTMLElement).classList.remove("playing");
+    }
+
+    function playSound(e: KeyboardEvent) {
+      const audio = document.querySelector(
+        `audio[data-key="${e.code}"]`
+      ) as HTMLAudioElement | null;
+      const key = document.querySelector(
+        `div[data-key="${e.code}"]`
+      ) as HTMLElement | null;
+      if (!audio || !key) return;
+
+      key.classList.add("playing");
+      audio.currentTime = 0;
+      audio.play();
+    }
+
+    const keys = Array.from(document.querySelectorAll(".key")) as HTMLElement[];
+    keys.forEach((key) =>
+      key.addEventListener("transitionend", removeTransition as EventListener)
+    );
+    window.addEventListener("keydown", playSound);
+
+    return () => {
+      keys.forEach((key) =>
+        key.removeEventListener("transitionend", removeTransition as EventListener)
+      );
+      window.removeEventListener("keydown", playSound);
+    };
+  }, []);
+
   return (
-    <body>
+    <div className={styles.container}>
+      <h1>Drum Kit</h1>
+      
+      <div className={styles.keys}>
+        {[
+          { key: "KeyA", label: "A", sound: "clap" },
+          { key: "KeyS", label: "S", sound: "hihat" },
+          { key: "KeyD", label: "D", sound: "kick" },
+          { key: "KeyF", label: "F", sound: "openhat" },
+          { key: "KeyG", label: "G", sound: "boom" },
+          { key: "KeyH", label: "H", sound: "ride" },
+          { key: "KeyJ", label: "J", sound: "snare" },
+          { key: "KeyK", label: "K", sound: "tom" },
+          { key: "KeyL", label: "L", sound: "tink" },
+        ].map(({ key, label, sound }) => (
+          <div key={key} data-key={key} className={styles.key}>
+            <kbd>{label}</kbd>
+            <span className={styles.sound}>{sound}</span>
+          </div>
+        ))}
+      </div>
 
- 
-
-  <div className={styles.keys}>
-
-    <div data-key="65" className={styles.key}>
-
-      <kbd>A</kbd>
-
-      <span className="sound">clap</span>
-
+      {[
+        { key: "KeyA", sound: "clap" },
+        { key: "KeyS", sound: "hihat" },
+        { key: "KeyD", sound: "kick" },
+        { key: "KeyF", sound: "openhat" },
+        { key: "KeyG", sound: "boom" },
+        { key: "KeyH", sound: "ride" },
+        { key: "KeyJ", sound: "snare" },
+        { key: "KeyK", sound: "tom" },
+        { key: "KeyL", sound: "tink" },
+      ].map(({ key, sound }) => (
+        <audio key={sound} data-key={key} src={`/sounds/${sound}.wav`}></audio>
+      ))}
     </div>
-
-    <div data-key="83" className={styles.key}>
-
-      <kbd>S</kbd>
-
-      <span className="sound">hihat</span>
-
-    </div>
-
-    <div data-key="68" className={styles.key}>
-
-      <kbd>D</kbd>
-
-      <span className="sound">kick</span>
-
-    </div>
-
-    <div data-key="70" className={styles.key}>
-
-      <kbd>F</kbd>
-
-      <span className="sound">openhat</span>
-
-    </div>
-
-    <div data-key="71" className={styles.key}>
-
-      <kbd>G</kbd>
-
-      <span className="sound">boom</span>
-
-    </div>
-
-    <div data-key="72" className={styles.key}>
-
-      <kbd>H</kbd>
-
-      <span className="sound">ride</span>
-
-    </div>
-
-    <div data-key="74" className={styles.key}>
-
-      <kbd>J</kbd>
-
-      <span className="sound">snare</span>
-
-    </div>
-
-    <div data-key="75" className={styles.key}>
-
-      <kbd>K</kbd>
-
-      <span className="sound">tom</span>
-
-    </div>
-
-    <div data-key="76" className={styles.key}>
-
-      <kbd>L</kbd>
-
-      <span className="sound">tink</span>
-
-    </div>
-
-  </div>
-
- 
-
-  <audio data-key="65" src="../../Sounds/clap.wav"></audio>
-
-  <audio data-key="83" src="../../Sounds/hihat.wav"></audio>
-
-  <audio data-key="68" src="../../Sounds/kick.wav"></audio>
-
-  <audio data-key="70" src="../../Sounds/openhat.wav"></audio>
-
-  <audio data-key="71" src="../../Sounds/boom.wav"></audio>
-
-  <audio data-key="72" src="../../Sounds/ride.wav"></audio>
-
-  <audio data-key="74" src="../../Sounds/snare.wav"></audio>
-
-  <audio data-key="75" src="../../Sounds/tom.wav"></audio>
-
-  <audio data-key="76" src="../../Sounds/tink.wav"></audio>
-
- 
-
-<script>
-
- 
-
-</script>
-
- 
-
-</body>
-  )
+  );
 }
 
-export default DrumKitPage
+export default DrumKitPage;
+
